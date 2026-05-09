@@ -1,5 +1,5 @@
 """
-SafetyRadar Zynd AI Agent
+PaperRadar Zynd AI Agent
 
 Registers the paper categorizer as a discoverable agent on the Zynd AI network.
 Run this separately: ./venv/bin/python3.12 -m backend.agent.zynd_service
@@ -41,7 +41,7 @@ def start_zynd_agent():
     agent_kp = os.path.expanduser(os.getenv("ZYND_AGENT_KEYPAIR_PATH", "~/.zynd/safetyradar-agent.json"))
 
     config = AgentConfig(
-        name="safetyradar-categorizer",
+        name="paperradar-categorizer",
         description=(
             "AI safety paper categorizer. Given a paper title and abstract, "
             "returns relevant topic tags from: AI Safety, Alignment, LLM Safety, "
@@ -75,7 +75,7 @@ def start_zynd_agent():
     agent = ZyndAIAgent(config=config)
     agent.set_langchain_agent(chain)
 
-    print(f"[zynd] SafetyRadar agent starting on port {config.server_port}")
+    print(f"[zynd] PaperRadar agent starting on port {config.server_port}")
     print(f"[zynd] Registering with {config.registry_url}")
     agent.start()
 

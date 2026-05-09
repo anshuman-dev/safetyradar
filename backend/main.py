@@ -10,7 +10,7 @@ load_dotenv()
 
 from backend.database import init_db, get_conn, DB_PATH
 
-app = FastAPI(title="SafetyRadar API")
+app = FastAPI(title="PaperRadar API")
 
 app.add_middleware(
     CORSMiddleware,
