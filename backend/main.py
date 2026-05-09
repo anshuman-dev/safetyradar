@@ -25,6 +25,21 @@ FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
 @app.on_event("startup")
 def startup():
     init_db()
+    # Seed DB in background if empty
+    conn = get_conn()
+    count = conn.execute("SELECT COUNT(*) FROM papers").fetchone()[0]
+    conn.close()
+    if count == 0:
+        import threading
+        threading.Thread(target=_seed, daemon=True).start()
+
+
+def _seed():
+    try:
+        from pipeline.run import run_pipeline
+        run_pipeline(use_apify=False)
+    except Exception as e:
+        print(f"[startup] seed error: {e}")
 
 
 @app.get("/api/papers")
