@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafetyRadar — AI Safety Research Feed</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">SafetyRadar</span>
+        <span class="logo-sub">AI Safety Research Feed</span>
+      </div>
+      <div class="header-actions">
+        <span id="stats-badge" class="stats-badge">— papers</span>
+        <button id="refresh-btn" class="btn-refresh">↻ Refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Search</div>
+        <input id="search-input" type="text" placeholder="Title, author, keyword..." class="search-input" />
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Topics</div>
+        <div id="tag-list" class="tag-list">
+          <button class="tag-btn active" data-tag="">All</button>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Source</div>
+        <div id="source-list" class="source-list">
+          <button class="source-btn active" data-source="">All</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="feed">
+      <div id="paper-count" class="paper-count"></div>
+      <div id="paper-list" class="paper-list"></div>
+      <div id="load-more-wrap" class="load-more-wrap" style="display:none">
+        <button id="load-more" class="btn-load-more">Load more</button>
+      </div>
+      <div id="empty-state" class="empty-state" style="display:none">
+        No papers found. Try different filters or click Refresh.
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

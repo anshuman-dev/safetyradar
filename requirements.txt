@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+apify-client
+httpx
+aiohttp
+python-dotenv
+zyndai-agent @ git+https://github.com/zyndai/zyndai-python-sdk.git
